@@ -178,7 +178,7 @@ CRATES="
 	zopfli@0.8.4
 "
 
-RUST_MIN_VER="1.87.0"
+RUST_MIN_VER="1.88.0"
 
 inherit cargo flag-o-matic shell-completion
 
@@ -229,64 +229,67 @@ src_compile(){
 src_test(){
 	# network related tests that will indefinitely hang #{{{
 	local CARGO_SKIP_TESTS=(
-		placeholder_format::cli
-		placeholder_format::config
-		placeholder_format::default_long
-		test_autoupdate_cache
-		test_cache_location_not_a_directory
-		test_cache_location_permission_denied
-		test_cache_location_source
-		test_cannot_build_without_tls_feature
-		test_clear_only_pages_directory
-		test_common_platform_is_used_as_fallback
-		test_config_platforms
-		test_correct_rendering_v1
-		test_correct_rendering_v2
-		test_correct_rendering_with_config
-		test_create_cache_directory_path
-		test_custom_page_overwrites
-		test_custom_pages_dir_is_not_dir
-		test_custom_patch_appends_to_common
-		test_custom_patch_does_not_append_to_custom
-		test_edit_page
-		test_edit_patch
-		test_fail_on_custom_config_path_is_directory
-		test_failure_on_unknown_field_in_config
-		test_failure_on_unknown_field_in_override_config
-		test_list_flag_rendering
-		test_load_the_correct_config
-		test_lowercased_page_lookup
-		test_macos_is_alias_for_osx
-		test_markdown_rendering
-		test_missing_cache
-		test_multi_platform_list_flag_rendering
-		test_multiple_platform_command_search
-		test_multiple_platform_command_search_not_found
-		test_no_auto_update_with_list
-		test_os_specific_page
-		test_pager_flag_enable
-		test_quiet_cache
-		test_quiet_failures
-		test_quiet_missing_cache
-		test_quiet_old_cache
-		test_raw_render_file
-		test_recreate_dir
-		test_rendering_color_auto
-		test_rendering_color_never
-		test_rendering_i18n
-		test_rendering_with_indentation
-		test_search_language_precedence
-		test_setup_seed_config
-		test_show_paths
-		test_show_title_config
-		test_spaces_find_command
-		test_tealdeer_page_works_without_cache
-		test_update_cache_default_features
-		test_update_cache_native_tls
-		test_update_cache_rustls_webpki
-		test_update_language_arg
-		test_warn_cache_age_never
-		test_warn_invalid_tls_backend
+		'placeholder_format::cli'
+		'placeholder_format::config'
+		'placeholder_format::default_long'
+		'test_autoupdate_cache'
+		'test_cache_location_not_a_directory'
+		'test_cache_location_permission_denied'
+		'test_cache_location_source'
+		'test_cannot_build_without_tls_feature'
+		'test_clear_only_pages_directory'
+		'test_common_platform_is_used_as_fallback'
+		'test_config_platforms'
+		'test_correct_rendering_v1'
+		'test_correct_rendering_v2'
+		'test_correct_rendering_with_config'
+		'test_create_cache_directory_path'
+		'test_custom_page_overwrites'
+		'test_custom_pages_dir_is_not_dir'
+		'test_custom_patch_appends_to_common'
+		'test_custom_patch_does_not_append_to_custom'
+		'test_edit_page'
+		'test_edit_patch'
+		'test_fail_on_custom_config_path_is_directory'
+		'test_failure_on_unknown_field_in_config'
+		'test_failure_on_unknown_field_in_override_config'
+		'test_invalid_page_name'
+		'test_list_broken_pipe'
+		'test_list_flag_rendering'
+		'test_load_the_correct_config'
+		'test_lowercased_page_lookup'
+		'test_macos_is_alias_for_osx'
+		'test_markdown_rendering'
+		'test_missing_cache'
+		'test_multi_platform_list_flag_rendering'
+		'test_multiple_platform_command_search'
+		'test_multiple_platform_command_search_not_found'
+		'test_no_auto_update_with_list'
+		'test_os_specific_page'
+		'test_pager_flag_enable'
+		'test_quiet_cache'
+		'test_quiet_failures'
+		'test_quiet_missing_cache'
+		'test_quiet_old_cache'
+		'test_raw_render_file'
+		'test_recreate_dir'
+		'test_rendering_color_auto'
+		'test_rendering_color_never'
+		'test_rendering_i18n'
+		'test_rendering_with_indentation'
+		'test_search_language_precedence'
+		'test_seed_config_with_non_utf8_path'
+		'test_setup_seed_config'
+		'test_show_paths'
+		'test_show_title_config'
+		'test_spaces_find_command'
+		'test_tealdeer_page_works_without_cache'
+		'test_update_cache_default_features'
+		'test_update_cache_native_tls'
+		'test_update_cache_rustls_webpki'
+		'test_update_language_arg'
+		'test_warn_cache_age_never'
+		'test_warn_invalid_tls_backend'
 	) # }}}
 	cargo_src_test --no-fail-fast
 }
